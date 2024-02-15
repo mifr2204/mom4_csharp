@@ -1,14 +1,40 @@
-﻿using MyMLApp;
-// Add input data
-var sampleData = new SentimentModel.ModelInput()
+﻿using myMLApp;
+
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("This application will try to predict if a given review is positive or negative.");
+Console.WriteLine("Input review:");
+
+//Get review from console input
+Console.ForegroundColor = ConsoleColor.DarkYellow;
+string? input = Console.ReadLine();
+if (input == null)
 {
-    Col0 = "The personal was not polite"
-};
+    return;
+}
 
-// Load model and predict output of sample data
-var result = SentimentModel.Predict(sampleData);
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine();
+Console.Write("Analyzing...");
 
-// If Prediction is 1, sentiment is "Positive"; otherwise, sentiment is "Negative"
-var sentiment = result.PredictedLabel == 1 ? "Positive" : "Negative";
-Console.WriteLine($"Text: {sampleData.Col0}\nSentiment: {sentiment}");
+//Create review object
+Review review = new Review(input);
+Console.WriteLine(" Done!");
+Console.WriteLine("");
 
+
+//Write result
+Console.Write("Review is determined to be: ");
+
+if (review.IsPositive)
+{
+    Console.BackgroundColor = ConsoleColor.Green;
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.WriteLine("  POSITIVE  ");
+} else {
+    Console.BackgroundColor = ConsoleColor.Red;
+    Console.ForegroundColor = ConsoleColor.Black;
+    Console.WriteLine("  NEGATIVE  ");
+}
+
+Console.BackgroundColor = ConsoleColor.Black;
+Console.ForegroundColor = ConsoleColor.White;
