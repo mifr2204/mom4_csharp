@@ -2,7 +2,7 @@
 // Add input data
 var sampleData = new SentimentModel.ModelInput()
 {
-    Col0 = "The personal was polite"
+    Col0 = "The personal was not polite"
 };
 
 // Load model and predict output of sample data
