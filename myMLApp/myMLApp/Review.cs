@@ -11,20 +11,20 @@ namespace myMLApp
     {
 
         //Private properties
-        private string _text = string.Empty;
-        private bool _isPositive = false;
+        private string _text = string.Empty; 
+        private bool _isPositive = false; 
 
         //Public properties
         public string Text
         {
-            get => _text;
+            get => _text; 
             set {
-                _text = value;
-                this._determineSentiment();
+                _text = value; 
+                this._determineSentiment(); 
             }
         }
-
-        public bool IsPositive
+    
+        public bool IsPositive 
         {
             get {
                 return this._isPositive; 
@@ -32,24 +32,24 @@ namespace myMLApp
         }
 
         //Constructor
-        public Review(string text)
+        public Review(string input)
         {
-            this.Text = text;
+            this.Text = input;
         }
 
         //Determine sentiment from review text
         private void _determineSentiment()
         {
-            var modelData = new SentimentModel.ModelInput()
+            var modelData = new SentimentModel.ModelInput() 
             {
-                Col0 = this.Text
+                Col0 = this.Text 
             };
 
             //1 is "positive", 0 is "negative"
-            SentimentModel.ModelOutput prediction = SentimentModel.Predict(modelData);
+            SentimentModel.ModelOutput prediction = SentimentModel.Predict(modelData); 
 
             if (prediction.PredictedLabel == 1) {
-                this._isPositive = true;
+                this._isPositive = true; 
             } else {
                 this._isPositive = false;
             }

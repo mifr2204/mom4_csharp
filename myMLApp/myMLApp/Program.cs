@@ -38,3 +38,7 @@ if (review.IsPositive)
 
 Console.BackgroundColor = ConsoleColor.Black;
 Console.ForegroundColor = ConsoleColor.White;
+
+Console.WriteLine("Press any key to close");
+Console.ReadLine();
+Console.Clear();
